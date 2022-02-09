@@ -101,6 +101,13 @@ Modify [intro.races paragraph 21] of ISO/IEC IS 14882 (the C++ Standard) as
 > case for signal handlers described below. Any such data race results in
 > undefined behavior. [...]
 
+Modify [atomics.order paragraph 2] of ISO/IEC IS 14882 (the C++ Standard) as
+  follows:
+> An atomic operation A that performs a release operation on an atomic object M
+> synchronizes with an atomic operation B that performs an acquire operation on
+> M and takes its value from any side effect in the release sequence headed by A
+> ***if both operations (A and B) specify a scope that includes the thread that performed the other operation***.
+
 Modify [thread.barrier.class paragraph 4] of ISO/IEC IS 14882 (the C++
   Standard) as follows:
 > 4. Concurrent invocations of the member functions of `barrier`, other than its
